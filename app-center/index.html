@@ -6,94 +6,687 @@
 
   <title>DQ App Center</title>
 
-  <meta name="theme-color" content="#e31837">
+  <meta name="theme-color" content="#0B253F">
   <meta name="application-name" content="DQ App Center">
   <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="DQ App Center">
 
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="../DQ_App_Center_App_Icon_512.png">
   <link rel="apple-touch-icon" href="../DQ_App_Center_App_Icon_512.png">
 
   <style>
-    * { box-sizing: border-box; }
+    :root {
+      --red: #e31837;
+      --blue: #0067b1;
+      --navy: #0b253f;
+      --ink: #17212b;
+      --muted: #667085;
+      --line: #e4e7ec;
+      --soft: #f6f8fa;
+      --yellow: #ffb81c;
+      --white: #ffffff;
+      --green: #17823b;
+      --greenbg: #eaf7ee;
+      --redbg: #fdebed;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
     body {
       margin: 0;
+      padding: 0;
+      background: #f4f6f8;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
       min-height: 100vh;
+    }
+
+    .hero {
+      background: linear-gradient(
+        145deg,
+        #0b253f 0%,
+        #103a61 55%,
+        #0067b1 100%
+      );
+      color: white;
+      padding: 24px 18px 28px;
+      border-radius: 0 0 28px 28px;
+      box-shadow: 0 8px 28px rgba(11, 37, 63, 0.15);
+    }
+
+    .heroInner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .brandRow {
       display: flex;
       align-items: center;
-      justify-content: center;
-      background: #f4f6f8;
-      font-family: Arial, sans-serif;
-      color: #17212b;
+      gap: 14px;
+    }
+
+    .appCenterIcon {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      object-fit: contain;
+      box-shadow: 0 6px 18px rgba(0,0,0,.18);
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      margin: 0 0 3px;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #d8e5f0;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px 14px 40px;
+    }
+
+    .intro {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 15px 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 18px rgba(23, 32, 42, .05);
+    }
+
+    .intro p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .intro strong {
+      color: var(--navy);
+    }
+
+    .sectionTitle {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 6px 2px 12px;
+      color: var(--navy);
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .pill {
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #eaf3f8;
+      color: var(--blue);
+    }
+
+    .pill.manager {
+      background: var(--redbg);
+      color: #9c1c2c;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
     }
 
     .card {
-      width: calc(100% - 32px);
-      max-width: 420px;
       background: white;
-      border-radius: 24px;
-      padding: 28px;
-      text-align: center;
-      box-shadow: 0 8px 30px rgba(0,0,0,.12);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 17px;
+      box-shadow: 0 5px 18px rgba(23, 32, 42, .05);
+      display: flex;
+      flex-direction: column;
     }
 
-    img {
-      width: 120px;
-      height: 120px;
-      border-radius: 24px;
+    .card.manager {
+      border: 2px solid #f2b8c0;
+      background: linear-gradient(180deg, #fff, #fff9fa);
+    }
+
+    .icon {
+      width: 92px;
+      height: 92px;
+      border-radius: 22px;
       object-fit: contain;
-      margin-bottom: 16px;
+      display: block;
+      margin: 0 auto 12px;
+      box-shadow: 0 6px 17px rgba(23, 32, 42, .12);
     }
 
-    h1 {
-      margin: 0 0 8px;
-      font-size: 28px;
+    .card h2 {
+      font-size: 19px;
+      color: var(--navy);
+      margin: 0 0 6px;
+      text-align: center;
     }
 
-    p {
-      color: #64748b;
-      line-height: 1.5;
-      margin-bottom: 0;
+    .card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 auto 12px;
+      text-align: center;
+      line-height: 1.4;
+      max-width: 280px;
     }
 
-    .btn {
+    .installerBadge {
+      align-self: center;
+      margin-bottom: 12px;
+      background: var(--greenbg);
+      color: var(--green);
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .managerBadge {
+      align-self: center;
+      margin: -3px 0 12px;
+      background: var(--redbg);
+      color: #9c1c2c;
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .installBtn {
       display: block;
       width: 100%;
-      margin-top: 20px;
+      margin-top: auto;
       border: 0;
-      border-radius: 14px;
-      padding: 15px;
-      background: #e31837;
+      border-radius: 12px;
+      padding: 13px 14px;
+      background: var(--blue);
       color: white;
-      font-size: 17px;
-      font-weight: bold;
+      font-weight: 900;
+      font-size: 14px;
       text-decoration: none;
+      text-align: center;
+    }
+
+    .manager .installBtn {
+      background: var(--red);
+    }
+
+    .instructions {
+      margin-top: 23px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 5px 18px rgba(23, 32, 42, .05);
+    }
+
+    .instructions h2 {
+      color: var(--navy);
+      font-size: 18px;
+      margin: 0 0 5px;
+    }
+
+    .instructions .lead {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0 0 14px;
+      line-height: 1.45;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 13px;
+    }
+
+    .tabBtn {
+      flex: 1;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--navy);
+      font-weight: 900;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .tabBtn.active {
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+    }
+
+    .steps {
+      background: var(--soft);
+      border-radius: 14px;
+      padding: 13px 14px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .steps ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .steps li + li {
+      margin-top: 7px;
+    }
+
+    .tip {
+      margin-top: 12px;
+      border-left: 4px solid var(--yellow);
+      background: #fff8e7;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 12px;
+      line-height: 1.45;
+      color: #614800;
+    }
+
+    .footer {
+      text-align: center;
+      color: #98a2b3;
+      font-size: 11px;
+      margin-top: 20px;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 640px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 25px;
+      }
+
+      .appCenterIcon {
+        width: 64px;
+        height: 64px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="card">
-    <img src="../DQ_App_Center_App_Icon_512.png" alt="DQ App Center">
 
-    <h1>DQ App Center</h1>
+  <section class="hero">
+    <div class="heroInner">
+      <div class="brandRow">
 
-    <p>
-      Install and access the DQ apps your team uses every day.
-    </p>
+        <img
+          class="appCenterIcon"
+          src="../DQ_App_Center_App_Icon_512.png"
+          alt="DQ App Center">
 
-    <a
-      class="btn"
-      href="https://script.google.com/macros/s/AKfycbym0jsSxZ1VRziRTrF-bAVak9S6yQ85BTHSwbazj2fEgq_FKhcOW_nHSjmBNqDIhigC/exec">
-      Open App Center
-    </a>
-  </div>
+        <div>
+          <h1>DQ App Center</h1>
+          <p>Install the DQ apps you need from one place.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+
+    <section class="intro">
+      <p>
+        <strong>Setting up a phone or tablet?</strong>
+        Choose the app you need below. Each button opens that app's
+        dedicated installer page so it installs with the correct name,
+        icon and standalone app window.
+      </p>
+    </section>
+
+
+    <div class="sectionTitle">
+      TEAM APPS
+      <span class="pill">Daily Use</span>
+    </div>
+
+    <div class="grid">
+
+      <article class="card">
+
+        <img
+          class="icon"
+          src="../DQ_Grill_App_Icon_512_v2.png"
+          alt="Grill">
+
+        <h2>Grill</h2>
+
+        <p>
+          Kitchen checklists, inventory and duties
+        </p>
+
+        <div class="installerBadge">
+          ✓ CUSTOM APP INSTALLER
+        </div>
+
+        <a
+          class="installBtn"
+          href="../grill/"
+          target="_blank"
+          rel="noopener">
+          INSTALL / OPEN
+        </a>
+
+      </article>
+
+
+      <article class="card">
+
+        <img
+          class="icon"
+          src="../DQ_Chill_Lobby_App_Icon_512.png"
+          alt="Chill">
+
+        <h2>Chill</h2>
+
+        <p>
+          Chill and lobby checklists, cakes and duties
+        </p>
+
+        <div class="installerBadge">
+          ✓ CUSTOM APP INSTALLER
+        </div>
+
+        <a
+          class="installBtn"
+          href="../chill/"
+          target="_blank"
+          rel="noopener">
+          INSTALL / OPEN
+        </a>
+
+      </article>
+
+
+      <article class="card">
+
+        <img
+          class="icon"
+          src="../DQ_Employee_Hub_App_Icon_512.png"
+          alt="Employee Hub">
+
+        <h2>Employee Hub</h2>
+
+        <p>
+          Schedules, duties and time-off requests
+        </p>
+
+        <div class="installerBadge">
+          ✓ CUSTOM APP INSTALLER
+        </div>
+
+        <a
+          class="installBtn"
+          href="../employee-hub/"
+          target="_blank"
+          rel="noopener">
+          INSTALL / OPEN
+        </a>
+
+      </article>
+
+    </div>
+
+
+    <div class="sectionTitle" style="margin-top:23px">
+      MANAGER APPS
+      <span class="pill manager">Restricted</span>
+    </div>
+
+    <div class="grid">
+
+      <article class="card manager">
+
+        <img
+          class="icon"
+          src="../DQ_Order_Prep_App_Icon_512.png"
+          alt="Order Prep">
+
+        <h2>Order Prep</h2>
+
+        <p>
+          Weekly ordering and preparation
+        </p>
+
+        <div class="installerBadge">
+          ✓ CUSTOM APP INSTALLER
+        </div>
+
+        <div class="managerBadge">
+          🔒 MANAGER ACCESS
+        </div>
+
+        <a
+          class="installBtn"
+          href="../order-prep/"
+          target="_blank"
+          rel="noopener">
+          INSTALL / OPEN
+        </a>
+
+      </article>
+
+
+      <article class="card manager">
+
+        <img
+          class="icon"
+          src="../DQ_Manager_Hub_App_Icon_512.png"
+          alt="Manager Hub">
+
+        <h2>Manager Hub</h2>
+
+        <p>
+          Manager operations, approvals and reporting
+        </p>
+
+        <div class="installerBadge">
+          ✓ CUSTOM APP INSTALLER
+        </div>
+
+        <div class="managerBadge">
+          🔒 MANAGER ACCESS
+        </div>
+
+        <a
+          class="installBtn"
+          href="../manager-hub/"
+          target="_blank"
+          rel="noopener">
+          INSTALL / OPEN
+        </a>
+
+      </article>
+
+    </div>
+
+
+    <section class="instructions">
+
+      <h2>📲 How to Install an App</h2>
+
+      <p class="lead">
+        Tap <strong>INSTALL / OPEN</strong> above first.
+        The app's installer page will open in your browser.
+      </p>
+
+      <div class="tabs">
+
+        <button
+          id="androidBtn"
+          class="tabBtn active"
+          onclick="showOS('android')">
+          Android
+        </button>
+
+        <button
+          id="appleBtn"
+          class="tabBtn"
+          onclick="showOS('apple')">
+          iPhone / iPad
+        </button>
+
+      </div>
+
+
+      <div id="androidSteps" class="steps">
+
+        <ol>
+          <li>
+            Make sure the installer page opens in the actual
+            <strong>Chrome</strong> app.
+          </li>
+
+          <li>
+            Tap Chrome's <strong>three-dot menu</strong>.
+          </li>
+
+          <li>
+            Tap <strong>Add page to</strong>.
+          </li>
+
+          <li>
+            Choose <strong>Install as web app</strong>.
+          </li>
+
+          <li>
+            Confirm the installation.
+          </li>
+
+          <li>
+            Open the new app from your Home screen or Apps screen.
+          </li>
+        </ol>
+
+      </div>
+
+
+      <div
+        id="appleSteps"
+        class="steps"
+        style="display:none">
+
+        <ol>
+          <li>
+            Open the installer page in <strong>Safari</strong>.
+          </li>
+
+          <li>
+            Tap the <strong>Share</strong> button.
+          </li>
+
+          <li>
+            Choose <strong>Add to Home Screen</strong>.
+          </li>
+
+          <li>
+            If your device shows
+            <strong>Open as Web App</strong>,
+            leave it enabled.
+          </li>
+
+          <li>
+            Tap <strong>Add</strong>.
+          </li>
+
+          <li>
+            Open the new app from your Home Screen.
+          </li>
+        </ol>
+
+      </div>
+
+
+      <div class="tip">
+        <strong>Important:</strong>
+        Install from the dedicated installer page.
+        If you see a gray Google "G" icon or
+        <strong>Create shortcut</strong>,
+        cancel — you're on the wrong page.
+      </div>
+
+      <div class="tip">
+        <strong>Manager apps:</strong>
+        Installing Order Prep or Manager Hub does not bypass their
+        manager access controls.
+      </div>
+
+    </section>
+
+
+    <div class="footer">
+      DQ App Center • Internal store tool<br>
+      Install only the apps needed for your role or device.
+    </div>
+
+  </main>
+
 
   <script>
+    function showOS(os) {
+
+      const android = os === 'android';
+
+      document.getElementById('androidSteps').style.display =
+        android ? 'block' : 'none';
+
+      document.getElementById('appleSteps').style.display =
+        android ? 'none' : 'block';
+
+      document.getElementById('androidBtn')
+        .classList.toggle('active', android);
+
+      document.getElementById('appleBtn')
+        .classList.toggle('active', !android);
+    }
+
+
+    function detectOS() {
+
+      const ua = navigator.userAgent || '';
+
+      const apple =
+        /iPhone|iPad|iPod/i.test(ua) ||
+        (
+          navigator.platform === 'MacIntel' &&
+          navigator.maxTouchPoints > 1
+        );
+
+      showOS(apple ? 'apple' : 'android');
+    }
+
+
+    detectOS();
+
+
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js');
     }
   </script>
+
 </body>
 </html>
