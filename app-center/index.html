@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>DQ App Center</title>
+
+  <meta name="theme-color" content="#e31837">
+  <meta name="application-name" content="DQ App Center">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="../DQ_App_Center_App_Icon_512.png">
+  <link rel="apple-touch-icon" href="../DQ_App_Center_App_Icon_512.png">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f4f6f8;
+      font-family: Arial, sans-serif;
+      color: #17212b;
+    }
+
+    .card {
+      width: calc(100% - 32px);
+      max-width: 420px;
+      background: white;
+      border-radius: 24px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,.12);
+    }
+
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      object-fit: contain;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+
+    p {
+      color: #64748b;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      border: 0;
+      border-radius: 14px;
+      padding: 15px;
+      background: #e31837;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <img src="../DQ_App_Center_App_Icon_512.png" alt="DQ App Center">
+
+    <h1>DQ App Center</h1>
+
+    <p>
+      Install and access the DQ apps your team uses every day.
+    </p>
+
+    <a
+      class="btn"
+      href="https://script.google.com/macros/s/AKfycbym0jsSxZ1VRziRTrF-bAVak9S6yQ85BTHSwbazj2fEgq_FKhcOW_nHSjmBNqDIhigC/exec">
+      Open App Center
+    </a>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js');
+    }
+  </script>
+</body>
+</html>
