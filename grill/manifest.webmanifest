@@ -1,0 +1,17 @@
+{
+  "name": "Grill",
+  "short_name": "Grill",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6f8",
+  "theme_color": "#e31837",
+  "icons": [
+    {
+      "src": "../DQ_Grill_App_Icon_512_v2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
