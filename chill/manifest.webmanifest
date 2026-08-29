@@ -1,0 +1,17 @@
+{
+  "name": "Chill",
+  "short_name": "Chill",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6f8",
+  "theme_color": "#e31837",
+  "icons": [
+    {
+      "src": "../DQ_Chill_Lobby_App_Icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
