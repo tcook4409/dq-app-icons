@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0B253F">
+  <meta name="application-name" content="DQ Scheduler">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="DQ Scheduler">
+  <title>DQ Scheduler</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="../DQ_Scheduler_App_Icon_192_v1.png">
+  <link rel="apple-touch-icon" href="../DQ_Scheduler_App_Icon_512_v1.png">
+  <style>
+    html,body,iframe{width:100%;height:100%;margin:0;border:0;padding:0;background:#eef3f7}
+    body{overflow:hidden}
+    iframe{display:block}
+  </style>
+</head>
+<body>
+  <iframe
+    title="DQ Scheduler"
+    src="https://script.google.com/macros/s/AKfycbzPRs6l633tc4nBt9XG_6CYAwJza4MUoVhv_ih8lPUlEwQkDiqdEyZQqvVoDK-4Spiu/exec?page=scheduler"
+    allow="fullscreen"
+  ></iframe>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js'));
+    }
+  </script>
+</body>
+</html>
