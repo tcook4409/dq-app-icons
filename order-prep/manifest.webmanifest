@@ -1,7 +1,9 @@
 {
-  "name": "Order Prep",
+  "id": "./",
+  "name": "DQ Order Prep",
   "short_name": "Order Prep",
-  "start_url": "./",
+  "description": "DQ Order Prep and inventory application",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f4f6f8",
@@ -17,7 +19,13 @@
       "src": "../DQ_Order_Prep_App_Icon_512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "../DQ_Order_Prep_App_Icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
