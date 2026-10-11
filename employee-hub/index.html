@@ -17,12 +17,14 @@
   <meta name="apple-mobile-web-app-title" content="Employee Hub">
 
   <link rel="manifest" href="./manifest.webmanifest">
+
   <link
     rel="icon"
     type="image/png"
     sizes="512x512"
     href="../DQ_Employee_Hub_App_Icon_512_v2.png"
   >
+
   <link
     rel="apple-touch-icon"
     sizes="512x512"
@@ -68,7 +70,7 @@
   <iframe
     id="employeeHubApp"
     title="DQ Employee Hub"
-    src="https://script.google.com/macros/s/AKfycbym0jsSxZ1VRziRTrF-bAVak9S6yQ85BTHSwbazj2fEgq_FKhcOW_nHSjmBNqDIhigC/exec"
+    src="https://script.google.com/macros/s/AKfycbwK6RVvwOVaHklFwCyhe0krgJT_HryulPGmphrSNWzNQ48nW9nkxgToeIDnyx_1H1vP/exec"
     allow="clipboard-write"
   ></iframe>
 
@@ -84,26 +86,35 @@
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('./sw.js')
           .catch(function (error) {
-            console.error('Service worker registration failed:', error);
+            console.error(
+              'Service worker registration failed:',
+              error
+            );
           });
       });
     }
 
-    window.addEventListener('beforeinstallprompt', function (event) {
-      event.preventDefault();
-      installPrompt = event;
-      installButton.style.display = 'block';
-    });
+    window.addEventListener(
+      'beforeinstallprompt',
+      function (event) {
+        event.preventDefault();
+        installPrompt = event;
+        installButton.style.display = 'block';
+      }
+    );
 
-    installButton.addEventListener('click', async function () {
-      if (!installPrompt) return;
+    installButton.addEventListener(
+      'click',
+      async function () {
+        if (!installPrompt) return;
 
-      installPrompt.prompt();
-      await installPrompt.userChoice;
+        installPrompt.prompt();
+        await installPrompt.userChoice;
 
-      installPrompt = null;
-      installButton.style.display = 'none';
-    });
+        installPrompt = null;
+        installButton.style.display = 'none';
+      }
+    );
 
     window.addEventListener('appinstalled', function () {
       installPrompt = null;
